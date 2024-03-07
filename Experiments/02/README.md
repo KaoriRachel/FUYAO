@@ -33,12 +33,6 @@ cd k8s/
 kubectl apply -f third-party.yml
 ```
 
-- prepare data in storage services
-
-```shell
-cd scripts/
-python3 register_movieid.py
-```
 ## Evaluation
 
 For more details, please refer to [here](../bench/intra-node/02_media_service/README.md).

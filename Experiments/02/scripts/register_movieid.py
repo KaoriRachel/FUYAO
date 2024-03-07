@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://192.168.1.126:8082/function/exp02RegisterMovieId"
+url = "http://192.168.1.129:8084/function/exp02RegisterMovieId"
 
 headers = {
     'Content-Type': 'application/json'
