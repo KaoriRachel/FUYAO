@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
-project(Lumine-experiments)
+project(Fuyao-experiments)
 
-include_directories(${LUMINE_BENCHMARKS_DIR}/Lumine/src/host/worker/cpp)
-include_directories(${LUMINE_BENCHMARKS_DIR}/Lumine/lib)
+include_directories(${LUMINE_BENCHMARKS_DIR}/Fuyao/src/host/worker/cpp)
+include_directories(${LUMINE_BENCHMARKS_DIR}/Fuyao/lib)
 include_directories(${LUMINE_BENCHMARKS_DIR}/Experiments/deps/libmc)
 
 set(EXP02_BUILD ON)

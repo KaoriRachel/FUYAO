@@ -10,12 +10,12 @@ set(EXP00_RDMA_SERVER_NAME exp00_rdma_server)
 set(EXP00_RDMA_CLIENT_NAME exp00_rdma_client)
 
 set(EXP00_RDMA_SOURCE_FILES
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/base/logging.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/base/thread.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/bit_map.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/infinity.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/queue_pair.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/shared_memory.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/base/logging.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/base/thread.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/bit_map.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/infinity.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/queue_pair.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/shared_memory.cpp
         rdma_rc.cpp)
 set(EXP00_LIBRARIES fmt GSL absl::flags uv_a)
 

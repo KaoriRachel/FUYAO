@@ -10,21 +10,21 @@ set(EXP10_RDMA_SERVER_NAME exp10_rdma_server)
 set(EXP10_RDMA_CLIENT_NAME exp10_rdma_client)
 
 set(EXP10_RDMA_CLIENT_FILES
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/base/logging.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/base/thread.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/bit_map.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/infinity.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/queue_pair.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/shared_memory.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/base/logging.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/base/thread.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/bit_map.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/infinity.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/queue_pair.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/shared_memory.cpp
         ${EXP10_BASE_DIR}/rdma_scale_src/rdma_rc_client.cpp)
 
 set(EXP10_RDMA_SERVER_FILES
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/base/logging.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/base/thread.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/bit_map.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/infinity.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/queue_pair.cpp
-        ${LUMINE_BENCHMARKS_DIR}/Lumine/lib/rdma/shared_memory.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/base/logging.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/base/thread.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/bit_map.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/infinity.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/queue_pair.cpp
+        ${LUMINE_BENCHMARKS_DIR}/Fuyao/lib/rdma/shared_memory.cpp
         ${EXP10_BASE_DIR}/rdma_scale_src/rdma_rc_server.cpp)
 
 set(EXP10_LIBRARIES fmt GSL absl::flags uv_a)

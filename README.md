@@ -32,4 +32,4 @@ Fuyao-benchmarks
 ### Building & Running
 
 - Within the `Experiments/bench/` directory, 
-users can find scripts for building, running, and invoking in its subdirectory.
+users can find scripts for building, running, and invoking.
