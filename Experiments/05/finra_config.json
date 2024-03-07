@@ -1,0 +1,95 @@
+{
+  "System": {
+    "timeoutAsMsForPoller": 8000,
+    "timeoutAsMsForDRC": 18000,
+    "pollTimeInternalAsUs": 10,
+    "memoryRegionSize": 1048576,
+    "messageSizeOfFabric": 1024
+  },
+  "Gateway": {
+    "gatewayIP": "192.168.1.126",
+    "httpPort": 8082,
+    "grpcPort": 50012,
+    "engineConnPort": 10012,
+    "numIOWorkers": 1,
+    "listenBacklog": 64
+  },
+  "Engines": [
+    {
+      "guid": 101,
+      "engineIP": "192.168.1.126",
+      "agentConnPort": 10020,
+      "engineTCPPort": -1,
+      "numIOWorkers": 1,
+      "gatewayConnPerWorker": 2,
+      "rootPathForIPC": "/dev/shm/ipc2",
+      "deviceName": "mlx5_0",
+      "devicePort": 1,
+      "deviceGidIndex": 3
+    },
+    {
+      "guid": 102,
+      "engineIP": "192.168.1.129",
+      "agentConnPort": 10020,
+      "engineTCPPort": -1,
+      "numIOWorkers": 1,
+      "gatewayConnPerWorker": 2,
+      "rootPathForIPC": "/dev/shm/ipc2",
+      "deviceName": "mlx5_0",
+      "devicePort": 1,
+      "deviceGidIndex": 3
+    }
+  ],
+  "Agents": [
+    {
+      "guid": 201,
+      "deviceName": "mlx5_2",
+      "devicePort": 1,
+      "deviceGidIndex": 2,
+      "numIOWorkers": 1,
+      "BindEngineGuid": 101
+    },
+    {
+      "guid": 202,
+      "deviceName": "mlx5_2",
+      "devicePort": 1,
+      "deviceGidIndex": 1,
+      "numIOWorkers": 1,
+      "BindEngineGuid": 102
+    }
+  ],
+  "Functions": [
+    {
+      "funcName": "exp05LastPx",
+      "funcId": 51,
+      "minWorkers": 1,
+      "maxWorkers": 24
+    },
+    {
+      "funcName": "exp05MarketData",
+      "funcId": 52,
+      "minWorkers": 1,
+      "maxWorkers": 24
+    },    {
+      "funcName": "exp05Side",
+      "funcId": 53,
+      "minWorkers": 1,
+      "maxWorkers": 24
+    },    {
+      "funcName": "exp05TradeDate",
+      "funcId": 54,
+      "minWorkers": 1,
+      "maxWorkers": 24
+    },    {
+      "funcName": "exp05Volume",
+      "funcId": 55,
+      "minWorkers": 1,
+      "maxWorkers": 24
+    },    {
+      "funcName": "exp05MarginBalance",
+      "funcId": 56,
+      "minWorkers": 1,
+      "maxWorkers": 24
+    }
+  ]
+}

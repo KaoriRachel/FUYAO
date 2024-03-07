@@ -1,0 +1,84 @@
+{
+  "System": {
+    "timeoutAsMsForPoller": 8000,
+    "timeoutAsMsForDRC": 18000,
+    "pollTimeInternalAsUs": 10,
+    "memoryRegionSize": 1048576,
+    "messageSizeOfFabric": 1024
+  },
+  "Gateway": {
+    "gatewayIP": "192.168.1.129",
+    "httpPort": 8084,
+    "grpcPort": 50012,
+    "engineConnPort": 10012,
+    "numIOWorkers": 4,
+    "listenBacklog": 128
+  },
+  "Engines": [
+    {
+      "guid": 101,
+      "engineIP": "192.168.1.126",
+      "agentConnPort": 10020,
+      "engineTCPPort": -1,
+      "numIOWorkers": 8,
+      "gatewayConnPerWorker": 8,
+      "rootPathForIPC": "/dev/shm/ipc2",
+      "deviceName": "mlx5_0",
+      "devicePort": 1,
+      "deviceGidIndex": 3
+    },
+    {
+      "guid": 102,
+      "engineIP": "192.168.1.129",
+      "agentConnPort": 10020,
+      "engineTCPPort": -1,
+      "numIOWorkers": 4,
+      "gatewayConnPerWorker": 2,
+      "rootPathForIPC": "/dev/shm/ipc6",
+      "deviceName": "mlx5_0",
+      "devicePort": 1,
+      "deviceGidIndex": 3
+    }
+  ],
+  "Agents": [
+    {
+      "guid": 201,
+      "deviceName": "mlx5_2",
+      "devicePort": 1,
+      "deviceGidIndex": 2,
+      "numIOWorkers": 4,
+      "BindEngineGuid": 101
+    },
+    {
+      "guid": 202,
+      "deviceName": "mlx5_2",
+      "devicePort": 1,
+      "deviceGidIndex": 1,
+      "numIOWorkers": 4,
+      "BindEngineGuid": 102
+    }
+  ],
+  "Functions": [
+    {"funcName": "exp11MarginBalance", "funcId": 1, "minWorkers": 4, "maxWorkers": 4},
+    {"funcName": "exp11RunAudit1", "funcId": 2,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit2", "funcId": 3,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit3", "funcId": 4,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit4", "funcId": 5,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit5", "funcId": 6,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit6", "funcId": 7,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit7", "funcId": 8,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit8", "funcId": 9,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit9", "funcId": 10,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit10", "funcId": 11,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit11", "funcId": 12,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit12", "funcId": 13,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit13", "funcId": 14,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit14", "funcId": 15,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit15", "funcId": 16,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit16", "funcId": 17,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit17", "funcId": 18,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit18", "funcId": 19,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit19", "funcId": 20,"minWorkers": 4,"maxWorkers": 4},
+    {"funcName": "exp11RunAudit20", "funcId": 21,"minWorkers": 4,"maxWorkers": 4}
+  ]
+}
