@@ -17,14 +17,14 @@ struct worker_context {
 utils_for_test::Socket *socket_;
 
 int faas_init() {
-
-    socket_ = new utils_for_test::Socket("192.168.1.126", 8084);
+#ifdef __ENABLE_ACROSS
+    socket_ = new utils_for_test::Socket("192.168.1.129", 8084);
 
     if(socket_->conn() < 0){
         perror("Failed to connect");
         return -1;
     }
-
+#endif
     return 0;
 }
 
@@ -76,13 +76,15 @@ int faas_func_call(void *worker_handle,
     auto chain_length_ptr = (int *) payload;
     (*chain_length_ptr)--;
 
-    // step3: invoke next function via interface
-//    int ret = context->invoke_func_fn(context->caller_context,
-//                                      "exp06Backend",
-//                                      payload,
-//                                      input_length,
-//                                      &output, &output_length, utils::ChooseMessagePassingMethod());
 
+    // step3: invoke next function via interface
+#ifndef __ENABLE_ACROSS
+    int ret = context->invoke_func_fn(context->caller_context,
+                                      "exp06Backend",
+                                      payload,
+                                      input_length,
+                                      &output, &output_length, utils::ChooseMessagePassingMethod());
+#elif
     // for nightcore intra
     int ret = 0;
     {
@@ -99,7 +101,7 @@ int faas_func_call(void *worker_handle,
         output_length = strlen(http_context);
 
     }
-
+#endif
 
     if (ret != 0) {
         return -1;

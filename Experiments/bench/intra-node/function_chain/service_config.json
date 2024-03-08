@@ -1,0 +1,75 @@
+{
+  "System": {
+    "timeoutAsMsForPoller": 8000,
+    "timeoutAsMsForDRC": 3600000,
+    "pollTimeInternalAsUs": 10,
+    "memoryRegionSize": 1048576,
+    "messageSizeOfFabric": 1024
+  },
+  "Gateway": {
+    "gatewayIP": "192.168.1.129",
+    "httpPort": 8084,
+    "grpcPort": 50014,
+    "engineConnPort": 10014,
+    "numIOWorkers": 1,
+    "listenBacklog": 64
+  },
+  "Engines": [
+    {
+      "guid": 101,
+      "engineIP": "192.168.1.126",
+      "agentConnPort": 10024,
+      "engineTCPPort": -1,
+      "numIOWorkers": 1,
+      "gatewayConnPerWorker": 2,
+      "rootPathForIPC": "/dev/shm/ipc4",
+      "deviceName": "mlx5_0",
+      "devicePort": 1,
+      "deviceGidIndex": 3
+    },
+    {
+      "guid": 102,
+      "engineIP": "192.168.1.129",
+      "agentConnPort": 10024,
+      "engineTCPPort": -1,
+      "numIOWorkers": 1,
+      "gatewayConnPerWorker": 2,
+      "rootPathForIPC": "/dev/shm/ipc4",
+      "deviceName": "mlx5_0",
+      "devicePort": 1,
+      "deviceGidIndex": 3
+    }
+  ],
+  "Agents": [
+    {
+      "guid": 201,
+      "deviceName": "mlx5_2",
+      "devicePort": 1,
+      "deviceGidIndex": 1,
+      "numIOWorkers": 1,
+      "BindEngineGuid": 101
+    },
+    {
+      "guid": 202,
+      "deviceName": "mlx5_2",
+      "devicePort": 1,
+      "deviceGidIndex": 1,
+      "numIOWorkers": 1,
+      "BindEngineGuid": 102
+    }
+  ],
+  "Functions": [
+    {
+      "funcName": "exp06Frontend",
+      "funcId": 1,
+      "minWorkers": 1,
+      "maxWorkers": 1
+    },
+    {
+      "funcName": "exp06Backend",
+      "funcId": 2,
+      "minWorkers": 129,
+      "maxWorkers": 129
+    }
+  ]
+}

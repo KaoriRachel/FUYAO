@@ -6,6 +6,10 @@ add_compile_options(-fexceptions)
 
 set(FUNC_WORKER_CPP_LIBRARIES_NAME worker_cpp)
 
+if (ENABLE_ACROSS)
+    add_compile_options(-D__ENABLE_ACROSS)
+endif ()
+
 include_directories(utils/)
 
 set(EXP06_FRONT_END_NAME                        exp06_front_end)
