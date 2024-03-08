@@ -5,8 +5,11 @@ method=DRC_OVER_IPC
 #method=DRC_OVER_Fabric
 #method=IPC
 
+
+absolute_path="/home/lgw/Fuyao-benchmarks"
+
 #dpu_config_path="/home/ubuntu/lgw/Fuyao-benchmarks/Experiments/bench/06_function_chain/service_config.json"
-host_config_path="/home/lgw/Fuyao-benchmarks/Experiments/bench/06_function_chain/service_config.json"
+host_config_path=${absolute_path}"/Experiments/bench/intra-node/function_chain/service_config.json"
 
 # precondition
 rm_dir="rm -rf /tmp/logs; mkdir /tmp/logs"
