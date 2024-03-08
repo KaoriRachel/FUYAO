@@ -15,7 +15,7 @@
   },
   "System": {
     "timeoutAsMsForPoller": 8000,
-    "timeoutAsMsForDRC": 120000,
+    "timeoutAsMsForDRC": 600000,
     "pollTimeInternalAsUs": 10,
     "memoryRegionSize": 1048576,
     "messageSizeOfFabric": 1024

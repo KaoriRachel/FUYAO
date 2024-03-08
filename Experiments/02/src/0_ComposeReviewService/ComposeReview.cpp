@@ -11,6 +11,7 @@
 #include "utils.h"
 #include "utils_for_test.h"
 #include "absl/functional/bind_front.h"
+#include "ThreadPool.h"
 
 #include "base/thread.h"
 
@@ -21,6 +22,7 @@ struct worker_context {
     void *caller_context;
     faas_invoke_func_fn_t invoke_func_fn;
     faas_append_output_fn_t append_output_fn;
+    ThreadPool *thread_pool;
 };
 
 struct Job {
@@ -58,12 +60,13 @@ int faas_create_func_worker(void *caller_context,
     context->caller_context = caller_context;
     context->invoke_func_fn = invoke_func_fn;
     context->append_output_fn = append_output_fn;
+    context->thread_pool = new ThreadPool(4);
 
     *worker_handle = context;
     return 0;
 }
 
-void invoke(void *arg) {
+int invoke(void *arg) {
     auto job = reinterpret_cast<struct Job *>(arg);
     auto context = reinterpret_cast<struct worker_context *>(job->context);
 
@@ -84,6 +87,8 @@ void invoke(void *arg) {
 
     job->elapsed_time = end_time - start_time;
     job->succeed = (ret != -1);
+
+    return 0;
 }
 
 int faas_func_call(void *worker_handle,
@@ -110,19 +115,31 @@ int faas_func_call(void *worker_handle,
     auto req_id = input_json.at("req_id").get<long long>();
 
     std::vector<std::string> downstream_funcs = {"exp02UploadMovieId1", "exp02UploadText1", "exp02UploadUniqueId1"};
+//    for (auto &downstream_fun: downstream_funcs) {
+//        auto thread = std::make_shared<faas::base::Thread>(fmt::format("Thread-{}", downstream_fun), fn_invoke);
+//        auto job = std::make_shared<Job>((worker_context *) worker_handle, 0, downstream_fun.c_str(), input,
+//                                         input_length, false);
+//
+//        thread->Start((void *) job.get());
+//
+//        jobs.push_back(job);
+//        threads.push_back(thread);
+//    }
+//
+//    for (auto &thread: threads) {
+//        thread->Join();
+//    }
+    std::vector<std::future<int>> results;
     for (auto &downstream_fun: downstream_funcs) {
-        auto thread = std::make_shared<faas::base::Thread>(fmt::format("Thread-{}", downstream_fun), fn_invoke);
         auto job = std::make_shared<Job>((worker_context *) worker_handle, 0, downstream_fun.c_str(), input,
                                          input_length, false);
-
-        thread->Start((void *) job.get());
-
         jobs.push_back(job);
-        threads.push_back(thread);
+
+        results.emplace_back(context->thread_pool->enqueue(invoke, (void *)job.get()));
     }
 
-    for (auto &thread: threads) {
-        thread->Join();
+    for(auto &&result : results){
+        result.get();
     }
 
     for (auto &job: jobs) {

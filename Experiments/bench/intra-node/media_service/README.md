@@ -39,8 +39,8 @@ bash ./start_all_nightcore.sh
 # if the qps is high, recommend to execute the script on another node (such as node-126)
 bash ./invoke.sh 10
 
-# We recommend killing all processes and restarting them 
-# after completing a specified QPS measurement.
+# if some errors occur, 
+# we recommend killing all processes and restarting them.
 bash stop_all.sh
 
 # clear data in MongoDB and Memcache
@@ -72,8 +72,8 @@ bash ./start_all_fuyao.sh
 # if the qps is high, recommend to execute the script on another node (such as node-126)
 bash ./invoke.sh 10
 
-# We recommend killing all processes and restarting them 
-# after completing a specified QPS measurement.
+# if some errors occur, 
+# we recommend killing all processes and restarting them.
 bash stop_all.sh
 
 # clear data in MongoDB and Memcache
