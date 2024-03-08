@@ -3,6 +3,7 @@
 //
 
 #include "func_worker_interface.h"
+#include "func_worker.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -13,6 +14,7 @@ struct worker_context {
     void *caller_context;
     faas_invoke_func_fn_t invoke_func_fn;
     faas_append_output_fn_t append_output_fn;
+    faas_memalloc_t mem_alloc_fn;
 };
 
 int faas_init() {
@@ -28,6 +30,7 @@ int faas_create_func_worker(void *caller_context,
     context->caller_context = caller_context;
     context->invoke_func_fn = invoke_func_fn;
     context->append_output_fn = append_output_fn;
+    context->mem_alloc_fn = faas::worker_cpp::MemAlloc;
 
     *worker_handle = context;
     return 0;
@@ -51,8 +54,11 @@ int faas_func_call(void *worker_handle,
     // generate payload
     void *generate_payload;
 
-    int res = posix_memalign(&generate_payload, 4096, will_generate_payload_size);
-    if(generate_payload == nullptr || res != 0){
+//    res = posix_memalign(&generate_payload, 4096, will_generate_payload_size);
+    generate_payload = context->mem_alloc_fn("exp01Fne", &will_generate_payload_size);
+
+
+    if(generate_payload == nullptr){
         perror("generate payload failed!");
         return -1;
     }
