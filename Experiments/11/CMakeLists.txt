@@ -7,6 +7,10 @@ set(EXP11_BASE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 add_compile_options(-fexceptions)
 add_compile_options(-frtti)
 
+if (ENABLE_ACROSS)
+    add_compile_options(-D__ENABLE_ACROSS)
+endif ()
+
 include_directories(${EXP11_BASE_DIR}/common)
 set(FUNC_WORKER_CPP_LIBRARIES_NAME worker_cpp)
 

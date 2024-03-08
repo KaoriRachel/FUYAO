@@ -42,7 +42,7 @@ absl::flat_hash_map<std::string, std::shared_ptr<utils_for_test::Socket>> socket
 
 int faas_init() {
 
-
+#ifdef __ENABLE_ACROSS
     // inter-host
     {
         for(int i=0; i<80;i++){
@@ -57,8 +57,7 @@ int faas_init() {
         }
 
     }
-
-
+#endif
 
     return 0;
 }
@@ -90,23 +89,24 @@ int invoke(void *arg) {
 
     int ret = 0;
 
+#ifndef __ENABLE_ACROSS
     // intra-host
     ret = context->invoke_func_fn(context->caller_context,
                                       job->func_name.c_str(),
                                       payload,
                                       strlen(payload),
                                       &fn_e_output, &fn_e_output_length, Finra::ChooseMessagePassingMethod());
-
-
+#elif
 // inter-host
-//    {
-//        char buf[1024];
-//        auto socket = socket_map_[job->func_name];
-//        std::string invoke_path = "/function/" + job->func_name;
-//        socket->issue_http_request("POST", invoke_path.c_str(), payload, strlen(payload));
-//        socket->recv_response(buf, 1024);
-//
-//    }
+    {
+        char buf[1024];
+        auto socket = socket_map_[job->func_name];
+        std::string invoke_path = "/function/" + job->func_name;
+        socket->issue_http_request("POST", invoke_path.c_str(), payload, strlen(payload));
+        socket->recv_response(buf, 1024);
+
+    }
+#endif
 
     auto end_time = Finra::get_timestamp_us();
 
