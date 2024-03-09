@@ -42,3 +42,4 @@ function run_launcher() {
 run_launcher "192.168.1.126" "/tmp/host6" "1" "/tmp/host6/experiments/exp09/exp09_start_for_chain" "mlx5_0" "1" "3"
 run_launcher "192.168.1.126" "/tmp/host6" "2" "/tmp/host6/experiments/exp09/exp09_start_for_finra" "mlx5_0" "1" "3"
 run_launcher "192.168.1.126" "/tmp/host6" "3" "/tmp/host6/experiments/exp09/exp09_start_for_media" "mlx5_0" "1" "3"
+run_launcher "192.168.1.126" "/tmp/host6" "4" "/tmp/host6/experiments/exp09/exp09_end" "mlx5_0" "1" "3"

@@ -61,6 +61,7 @@
   "Functions": [
     {"funcName": "exp09StartChain", "funcId": 1, "minWorkers": 4, "maxWorkers": 4},
     {"funcName": "exp09StartFinra", "funcId": 2, "minWorkers": 4, "maxWorkers": 4},
-    {"funcName": "exp09StartMedia", "funcId": 3, "minWorkers": 4, "maxWorkers": 4}
+    {"funcName": "exp09StartMedia", "funcId": 3, "minWorkers": 4, "maxWorkers": 4},
+    {"funcName": "exp09End", "funcId": 4, "minWorkers": 4, "maxWorkers": 4}
   ]
 }
