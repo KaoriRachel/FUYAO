@@ -19,7 +19,7 @@ static pid_t __gettid() {
     return syscall(SYS_gettid);
 }
 
-auto manager_ip = "127.0.0.1";
+auto manager_ip = "192.168.1.129";
 auto thread_id = static_cast<int>(__gettid());
 auto thread_num = 128;
 

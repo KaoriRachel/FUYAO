@@ -1,13 +1,13 @@
 {
   "System": {
     "timeoutAsMsForPoller": 8000,
-    "timeoutAsMsForDRC": 18000,
+    "timeoutAsMsForDRC": 10000,
     "pollTimeInternalAsUs": 10,
     "memoryRegionSize": 1048576,
     "messageSizeOfFabric": 1024
   },
   "Gateway": {
-    "gatewayIP": "192.168.1.198",
+    "gatewayIP": "192.168.1.126",
     "httpPort": 8084,
     "grpcPort": 50014,
     "engineConnPort": 10014,
@@ -30,7 +30,7 @@
     {
       "guid": 102,
       "engineIP": "192.168.1.129",
-      "agentConnPort": 10028,
+      "agentConnPort": 10024,
       "engineTCPPort": -1,
       "numIOWorkers": 1,
       "gatewayConnPerWorker": 2,
@@ -59,41 +59,8 @@
     }
   ],
   "Functions": [
-    {
-      "funcName": "exp01Fna",
-      "funcId": 1,
-      "minWorkers": 1,
-      "maxWorkers": 1
-    },
-    {
-      "funcName": "exp01Fnb",
-      "funcId": 2,
-      "minWorkers": 1,
-      "maxWorkers": 1
-    },
-    {
-      "funcName": "exp01Fnc",
-      "funcId": 3,
-      "minWorkers": 1,
-      "maxWorkers": 1
-    },
-    {
-      "funcName": "exp01Fnd",
-      "funcId": 4,
-      "minWorkers": 1,
-      "maxWorkers": 1
-    },
-    {
-      "funcName": "exp01Fne",
-      "funcId": 5,
-      "minWorkers": 8,
-      "maxWorkers": 8
-    },
-    {
-      "funcName": "exp01Fnf",
-      "funcId": 6,
-      "minWorkers": 1,
-      "maxWorkers": 1
-    }
+    {"funcName": "exp09StartChain", "funcId": 1, "minWorkers": 4, "maxWorkers": 4},
+    {"funcName": "exp09StartFinra", "funcId": 2, "minWorkers": 4, "maxWorkers": 4},
+    {"funcName": "exp09StartMedia", "funcId": 3, "minWorkers": 4, "maxWorkers": 4}
   ]
 }
