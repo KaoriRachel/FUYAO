@@ -44,3 +44,6 @@ Via Gateway: interaction latency : 1034
 Via DRC_OVER_Fabric: interaction latency : 288
 ...
 ```
+
+> Please note that our experiment evaluates the round-trip time (due to the clocks on different are not synchronized). 
+Our paper focuses on invoke latency, hence the round-trip time needs to be divided by 2.
