@@ -1,15 +1,15 @@
 {
   "MediaService": {
     "memcached": {
-      "addr": "192.168.1.120",
+      "addr": "192.168.172.5",
       "port": 31211
     },
     "mongodb": {
-      "addr": "192.168.1.120",
+      "addr": "192.168.172.5",
       "port": 32212
     },
     "redis": {
-      "addr": "192.168.1.120",
+      "addr": "192.168.172.5",
       "port": 32214
     }
   },
@@ -21,7 +21,7 @@
     "messageSizeOfFabric": 1024
   },
   "Gateway": {
-    "gatewayIP": "192.168.1.126",
+    "gatewayIP": "192.168.172.5",
     "httpPort": 8082,
     "grpcPort": 50012,
     "engineConnPort": 10012,
@@ -31,7 +31,7 @@
   "Engines": [
     {
       "guid": 101,
-      "engineIP": "192.168.1.126",
+      "engineIP": "192.168.172.6",
       "agentConnPort": 10020,
       "engineTCPPort": -1,
       "numIOWorkers": 1,
@@ -43,7 +43,7 @@
     },
     {
       "guid": 102,
-      "engineIP": "192.168.1.129",
+      "engineIP": "192.168.172.5",
       "agentConnPort": 10020,
       "engineTCPPort": -1,
       "numIOWorkers": 1,

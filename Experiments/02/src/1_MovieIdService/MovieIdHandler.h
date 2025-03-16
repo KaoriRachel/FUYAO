@@ -217,6 +217,7 @@ namespace media_service {
             if (!plotinsert) {
                 fprintf(stderr, "E Movie %s failed to insert to MongoDB\n", val.title);
                 op_error = true;
+		fprintf(stderr, "Insert one failed: %s\n", error.message);
             }
             bson_destroy(new_doc);
         }

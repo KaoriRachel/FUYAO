@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://192.168.1.129:8084/function/exp02RegisterMovieId"
+url = "http://192.168.172.5:8084/function/exp02RegisterMovieId"
 
 headers = {
     'Content-Type': 'application/json'
@@ -22,3 +22,4 @@ for payload in payloads:
     response = requests.request("POST", url, headers=headers, data=payload)
     if response.status_code != 200:
         print("post request failed! payload:" + payload)
+        print("status code!:", response.status_code)

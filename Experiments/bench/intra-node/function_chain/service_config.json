@@ -7,7 +7,7 @@
     "messageSizeOfFabric": 1024
   },
   "Gateway": {
-    "gatewayIP": "192.168.1.129",
+    "gatewayIP": "192.168.172.5",
     "httpPort": 8084,
     "grpcPort": 50014,
     "engineConnPort": 10014,
@@ -17,7 +17,7 @@
   "Engines": [
     {
       "guid": 101,
-      "engineIP": "192.168.1.126",
+      "engineIP": "192.168.172.6",
       "agentConnPort": 10024,
       "engineTCPPort": -1,
       "numIOWorkers": 1,
@@ -29,7 +29,7 @@
     },
     {
       "guid": 102,
-      "engineIP": "192.168.1.129",
+      "engineIP": "192.168.172.5",
       "agentConnPort": 10024,
       "engineTCPPort": -1,
       "numIOWorkers": 1,
@@ -62,14 +62,14 @@
     {
       "funcName": "exp06Frontend",
       "funcId": 1,
-      "minWorkers": 1,
-      "maxWorkers": 1
+      "minWorkers": 4,
+      "maxWorkers": 4
     },
     {
       "funcName": "exp06Backend",
       "funcId": 2,
-      "minWorkers": 129,
-      "maxWorkers": 129
+      "minWorkers": 128,
+      "maxWorkers": 128
     }
   ]
 }

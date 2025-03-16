@@ -7,7 +7,7 @@
     "messageSizeOfFabric": 1024
   },
   "Gateway": {
-    "gatewayIP": "192.168.1.129",
+    "gatewayIP": "192.168.172.5",
     "httpPort": 8084,
     "grpcPort": 50012,
     "engineConnPort": 10012,
@@ -29,13 +29,13 @@
     },
     {
       "guid": 102,
-      "engineIP": "192.168.1.129",
+      "engineIP": "192.168.172.5",
       "agentConnPort": 10020,
       "engineTCPPort": -1,
       "numIOWorkers": 4,
       "gatewayConnPerWorker": 2,
       "rootPathForIPC": "/dev/shm/ipc6",
-      "deviceName": "mlx5_0",
+      "deviceName": "mlx5_1",
       "devicePort": 1,
       "deviceGidIndex": 3
     }

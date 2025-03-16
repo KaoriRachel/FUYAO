@@ -14,7 +14,7 @@ for chain_len in ${chain_lens[@]}; do
   for payload in ${payloads[@]}; do
     echo "chain_len: ${chain_len}, payload: ${payload}"
     for i in {1..50}; do
-      curl -X POST -d "${chain_len} ${payload}" http://192.168.1.129:8084/function/exp06Frontend
+      curl -X POST -d "${chain_len} ${payload}" http://192.168.172.5:8084/function/exp06Frontend
       sleep 0.5
     done
   done

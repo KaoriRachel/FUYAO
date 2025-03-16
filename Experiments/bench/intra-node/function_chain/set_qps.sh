@@ -1,8 +1,8 @@
 
-WRK_BIN=/usr/bin/wrk
+WRK_BIN=/home/jyqi/local/bin/wrk
 WRK_SCRIPT=./chain.lua
 
-URL=http://192.168.1.129:8084/function/exp06Frontend
+URL=http://192.168.172.5:8084/function/exp06Frontend
 
 # runs a benchmark for 3 seconds, using 5 threads, keeping 20 HTTP connections open
 # and a constant throughput of 20 requests per second (total, across all connections combined).

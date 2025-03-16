@@ -1,9 +1,9 @@
 #!/bin/bash
 
-WRK_BIN=/usr/bin/wrk
+WRK_BIN=/home/jyqi/local/bin/wrk
 WRK_SCRIPT=./finra.lua
 
-URL=http://192.168.1.129:8084
+URL=http://192.168.172.5:8084
 
 qps=$1
 
